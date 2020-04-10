@@ -13,7 +13,6 @@ module ChatSpace
       g.javascripts false
       g.helper false
       g.test_framework false
-      # testtestest
     end
   end
 end
