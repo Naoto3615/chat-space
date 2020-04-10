@@ -8,7 +8,7 @@ DB設計
 |group-id|integer|null:false, foreign_key:true|
 |body|text|null: false|
 |image|string| ||
-|created_at|text||null:false|
+|created_at|text|null:false|
 
 
 ### Association
@@ -20,8 +20,8 @@ DB設計
 |Column|Type|Options|
 |------|----|-------|
 |email|text|null:false|
-|password|text||null:false|
-|name|string||null:false|
+|password|text|null:false|
+|name|string|null:false|
 |group-id|integer|null:false,foreign_key: true|
 
 ### Association
@@ -32,7 +32,7 @@ DB設計
 
 |Column|Type|Options|
 |------|----|-------|
-|g-name|string||null: false|
+|g-name|string|null: false|
 |user-id|integer|null:false, foreign_key: true|
 
 ### Association
