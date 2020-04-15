@@ -1,3 +1,31 @@
 .side-bar
-  .side-bar_user-name "user-name"
-  .side-bar_group-list "group-list"
+  .side-bar_user-name 
+    .edit-bar
+      .name naoto
+      .icons
+        .left-icon 
+          = link_to "#" do
+            %i.far.fa-edit
+        .right-icon 
+          = link_to "#" do
+            %i.fa.fa-cog
+  
+  .side-bar_group-list 
+    .group-list
+      .group-list_name 
+        tech camp
+        .group-list_name-message 
+          まだメッセージはありません
+
+    .group-list
+      .group-list_name 
+        NIPPON
+        .group-list_name-message
+          まだメッセージはありません
+
+    .group-list
+      .group-list_name 
+        America
+        .group-list_name-message 
+          まだメッセージはありません
+      
