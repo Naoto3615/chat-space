@@ -11,7 +11,7 @@
   width:300px;
 }
 
-.side-bar_user-name{
+.side-bar__user-name{
   background-color:#253141;
   height:100px;
   position:relative;
@@ -55,7 +55,7 @@ margin-left:5px;
 }
 
 
-.side-bar_group-list{
+.side-bar__group-list{
   background-color:#2f3e51;
   height:calc(100vh - 100px);
   display:block;
@@ -72,7 +72,7 @@ margin-left:5px;
   @include group-list;
 }
 
-@mixin group-list_name{
+@mixin group-list--name{
   width:260px;
   height:15px;
   position:absolute;
@@ -84,11 +84,11 @@ margin-left:5px;
   font-weight:bold;
 }
 
-.group-list_name{
-  @include group-list_name;
+.group-list--name{
+  @include group-list--name;
 }
 
-@mixin group-list_name-message{
+@mixin group-list--name__message{
   font-size:11px;
   line-height:11px;
   position:absolute;
@@ -97,8 +97,8 @@ margin-left:5px;
   height:11px;
 }
 
-.group-list_name-message{
-@include group-list_name-message;
+.group-list--name__message{
+@include group-list--name__message;
 }
 
 .main-contents{
@@ -106,7 +106,7 @@ margin-left:5px;
   display:block;
 }
 
-.main-chat_group{
+.main-chat--group{
   background-color:#ffffff;
   height:100px;
   border-bottom:solid;
@@ -115,7 +115,7 @@ margin-left:5px;
   border-width:1px;
 }
 
-.main-chat_group-name{
+.main-chat--group__name{
   color:#333333;
   font-size:20px;
   width:160px;
@@ -124,7 +124,7 @@ margin-left:5px;
   top:35px;
 }
 
-.main-chat_group-member{
+.main-chat--group__member{
   color:#999999;
   font-size:12px;
   position:absolute;
@@ -132,7 +132,7 @@ margin-left:5px;
   left:40px;
 }
 
-.main-chat_group-edit{
+.main-chat--group__edit{
   width:32px;
   height:40px;
   color:#38aef0;
@@ -164,22 +164,20 @@ margin-left:5px;
 .user-date{
   height:55px;
   display:flex;
-}
-
-.user{
-  color:#333333;
-  font-size:16px;
-  height:20px;
-  line-height:20px;
-  padding-left:40px;
-  padding-top:35px;
-}
-
-.date{
-  color:#999999;
-  font-size:12px;
-  padding-left:10px;
-  padding-top:35px;
+  &--user{
+    color:#333333;
+    font-size:16px;
+    height:20px;
+    line-height:20px;
+    padding-left:40px;
+    padding-top:35px;
+  }
+  &--date{
+    color:#999999;
+    font-size:12px;
+    padding-left:10px;
+    padding-top:35px;
+  }
 }
 
 .chat-message{
@@ -192,7 +190,7 @@ margin-left:5px;
   padding-bottom:46px;
 }
 
-.main-chat_message-form{
+.main-chat--message-form{
   height:90px;
   width:100%;
   background-color:#d2d2d2;

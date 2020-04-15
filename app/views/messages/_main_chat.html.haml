@@ -1,29 +1,29 @@
 .main-contents
-  .main-chat_group
-    .main-chat_group-name test
-    .main-chat_group-member Member : naoto
-    .main-chat_group-edit
+  .main-chat--group
+    .main-chat--group__name test
+    .main-chat--group__member Member : naoto
+    .main-chat--group__edit
       = link_to "Edit" ,"#" ,class: "edit-link"
   
   .main-chat
     .user-date
-      .user haruka
-      .date 2020/04/11/(Fri) 15:45:09
+      .user-date--user haruka
+      .user-date--date 2020/04/11/(Fri) 15:45:09
     .chat-message 今日も頑張りましたね！
 
     .user-date
-      .user naoki
-      .date 2020/09/11/(Fri) 20:45:09
+      .user-date--user naoki
+      .user-date--date 2020/09/11/(Fri) 20:45:09
     .chat-message いや〜、大変でしたよ。。。
 
     .user-date
-      .user haruka
-      .date 2020/04/18/(Wed) 23:45:09
+      .user-date--user haruka
+      .user-date--date 2020/04/18/(Wed) 23:45:09
     .chat-message ご褒美にお菓子をあげましょう。
 
 
 
-  .main-chat_message-form
+  .main-chat--message-form
     %form.message
       .message-form
         %input{class:"message-form_text",placeholder:"type a message", type:"text"}
