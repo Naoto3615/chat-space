@@ -1,36 +1,25 @@
 .main-contents
   .main-chat--group
-    .main-chat--group__name test
-    .main-chat--group__member Member : naoto
+    .main-chat--group__name 
+      = @group.name
+    .main-chat--group__member 
+      - @group.group_users.each do |group_user|
+        = group_user.user.name
+
     .main-chat--group__edit
-      = link_to "Edit" ,"#" ,class: "edit-link"
-  
+      = link_to "Edit", edit_group_path(@group.id) ,class: "edit-link" 
+      
   .main-chat
-    .user-date
-      .user-date--user haruka
-      .user-date--date 2020/04/11/(Fri) 15:45:09
-    .chat-message 今日も頑張りましたね！
-
-    .user-date
-      .user-date--user naoki
-      .user-date--date 2020/09/11/(Fri) 20:45:09
-    .chat-message いや〜、大変でしたよ。。。
-
-    .user-date
-      .user-date--user haruka
-      .user-date--date 2020/04/18/(Wed) 23:45:09
-    .chat-message ご褒美にお菓子をあげましょう。
-
+    = render @messages
 
 
   .main-chat--message-form
-    %form.message
-      .message-form
-        %input{class:"message-form_text",placeholder:"type a message", type:"text"}
-        %label{class:"message-form_image",id:"message-form_image"}
-          =icon("fas","image")
-          %input{type:"file",class:"message-form_file",id:"message-form_image"}
-      %input{type:"submit",value:"Send",class:"message-form_submit"}
-  
-
-
+    .message-form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: "message-form_text", placeholder: "type a message" 
+        .form-label
+          = f.label :image, class: "message-form_image" do
+            =icon("fas", "image")
+            = f.file_field :image, class: "message-form_file"
+        = f.submit "Send", class: "message-form_submit"  
+          
