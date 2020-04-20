@@ -5,28 +5,19 @@
         = current_user.name
       .icons
         .left-icon 
-          = link_to do
+          = link_to new_group_path do
             %i.far.fa-edit
         .right-icon 
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog')
   
   .side-bar__group-list 
-    .group-list
-      .group-list--name 
-        tech camp
-        .group-list--name__message 
-          まだメッセージはありません
+    - current_user.groups.each do |group| 
+      .group-list
+        = link_to group_messages_path(group) do
+          .group-list--name 
+            = group.name
+          .group-list--name__message 
+            = group.show_last_message
 
-    .group-list
-      .group-list--name 
-        NIPPON
-        .group-list--name__message
-          まだメッセージはありません
-
-    .group-list
-      .group-list--name 
-        America
-        .group-list--name__message 
-          まだメッセージはありません
-      
+    

@@ -95,6 +95,9 @@ margin-left:5px;
   top:40px;
   width:260px;
   height:11px;
+  color:white;
+  position:absolute;
+  left:20px;
 }
 
 .group-list--name__message{
@@ -205,19 +208,31 @@ margin-left:5px;
 .message-form{
   position:relative;
   width:100%;
+  display:flex;
   &_text{
     height:50px;
     width:100%;
   }
-  &_image{
-    position:absolute;
-    font-size:2rem;
-    right:10px;       
-  }
-  &_file{
-    display:none;
-  }
 }
+  
+.form-label{
+  position:relative;
+}
+
+.message-form_image{
+  position:absolute;
+  font-size:2rem;
+  right:10px;       
+}
+
+
+.message-form_file{
+  display:none;
+  position:absolute;
+  right:10px;
+  }
+
+
 
 .message-form_submit{
   padding:0 30px;
@@ -231,4 +246,9 @@ margin-left:5px;
 
 ::placeholder{
   padding-left:10px;
+}
+
+.new_message{
+  display: flex;
+  width: 100%;
 }
