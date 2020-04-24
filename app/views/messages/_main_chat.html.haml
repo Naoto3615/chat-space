@@ -14,12 +14,12 @@
 
 
   .main-chat--message-form
-    .message-form
+    .message-form 
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: "message-form_text", placeholder: "type a message" 
         .form-label
           = f.label :image, class: "message-form_image" do
             =icon("fas", "image")
             = f.file_field :image, class: "message-form_file"
-        = f.submit "Send", class: "message-form_submit"  
+        = f.submit "Send", class: "message-form_submit"
           
