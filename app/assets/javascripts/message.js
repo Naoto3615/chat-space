@@ -1,7 +1,11 @@
 $(function(){
-
+  
   function buildHTML(message){
-    image = ( message.image ) ? `<img class="lower-message__image" src=${message.image} >` : ""; //三項演算子
+    var image = '';
+    if ( message.image.url ) {
+      image = `<img class="lower-message__image" src=${message.image.url} >`//三項演算子
+    };
+  
                 var html =  
                 ` <div class="messages" data-message-id="${message.id}">
                 <div class="user-date">
@@ -23,29 +27,32 @@ $(function(){
   }
 
 
+  var reloadMessages = function () {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.messages:last').data("message-id"); 
+      console.log(last_message_id)
 
-  $('#new_message').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.main-chat').append(html);
-      $("form")[0].reset();
-      $('input').prop('disabled', false);
-      $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 50);
-    })
-      .fail(function() {
-        alert("メッセージ送信に失敗しました");
-        $('input').prop('disabled', false);
-    });
-  });
-});
+      $.ajax({
+        url: "api/messages",
+        type: 'get', 
+        dataType: 'json', 
+        data: {last_id: last_message_id} 
+      })
+      .done(function (messages) {
+        console.log(messages) 
+        var insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message); 
+          $('.main-chat').append(insertHTML);
+        })
+        $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast');
+      })
+      .fail(function () {
+        alert('自動更新に失敗しました');
+      });
+    }
+  };
+  setInterval(reloadMessages, 7000);
+  });  
+
+     
