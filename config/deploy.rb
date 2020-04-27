@@ -1,4 +1,4 @@
-lock '3.1.3'
+lock '3.13.3'
 
 # Capistranoのログの表示に利用する
 set :application, 'chat-space'
