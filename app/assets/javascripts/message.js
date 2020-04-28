@@ -1,7 +1,7 @@
 $(function(){
 
   function buildHTML(message){
-    image = ( message.image ) ? `<img class="lower-message__image" src=${message.image} >` : ""; //三項演算子
+    image = ( message.image ) ? `<img class="lower-message__image" src=${message.image} >` : ""; 
                 var html =  
                 ` <div class="messages" data-message-id="${message.id}">
                 <div class="user-date">
