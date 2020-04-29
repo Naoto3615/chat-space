@@ -11,15 +11,15 @@ $(function(){
 
                 var html =  
                 ` <div class="messages" data-message-id="${message.id}">
-                <div class="user-date">
-                  <div class="user-date--user">
-                    ${message.user_name}
-                  </div>
-                  <div class="user-date--date">
-                    ${message.date}
-                  </div>
-                </div>
-                <p class="chat-message">
+                    <div class="user-date">
+                      <div class="user-date--user">
+                        ${message.user_name}
+                      </div>
+                      <div class="user-date--date">
+                        ${message.date}
+                      </div>
+                    </div>
+                <div class="chat-message">
                   <p class="lower-message__content">
                   ${message.content}
                   </p>
@@ -72,13 +72,15 @@ $(function(){
         data: {last_id: last_message_id} 
       })
       .done(function (messages) {
-        console.log(messages) 
+        // console.log(messages) 
         var insertHTML = '';
-        messages.forEach(function (message) {
-          insertHTML = buildHTML(message); 
-          $('.main-chat').append(insertHTML);
-        })
-        $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast');
+        if (messages.length > 0){
+          messages.forEach(function (message) {
+            insertHTML = buildHTML(message); 
+            $('.main-chat').append(insertHTML);
+          })
+          $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast');
+        }
       })
       .fail(function () {
         alert('自動更新に失敗しました');
