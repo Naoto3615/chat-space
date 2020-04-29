@@ -19,7 +19,7 @@ $(function(){
                     ${message.date}
                   </div>
                 </div>
-                <div class="chat-message">
+                <p class="chat-message">
                   <p class="lower-message__content">
                   ${message.content}
                   </p>
